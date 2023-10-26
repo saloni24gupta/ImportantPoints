@@ -67,3 +67,10 @@ const createDocument = async () => {
     }
 }
 createDocument()
+
+const getDocument = async() => {
+    const result = await Playlist.find({videos: {$gt: 50}})
+    console.log(result)
+}
+
+getDocument();
