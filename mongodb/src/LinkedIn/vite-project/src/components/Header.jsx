@@ -54,6 +54,11 @@ const Header = (props) => {
                 <span>Me</span>
                 <img src="/assets/down-icon.svg" alt="" />
               </a>
+              <SignOut>
+                <a>
+                  sign out
+                </a>
+              </SignOut>
             </User>
             <Work>
               <a>
@@ -222,5 +227,7 @@ align-items: center;
 }
 `
 const Work = styled(User)`
-border-left: 1px solid rgba(0, 0, 0, 0.08)
-`
+border-left: 1px solid rgba(0, 0, 0, 0.08);
+`;
+
+const SignOut = styled.div``;
