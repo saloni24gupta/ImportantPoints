@@ -1,28 +1,74 @@
 import styled from "styled-components";
 const Header = (props) => {
-    return(
-       <Container>
-        <Content>
-            <Logo>
-                <a href="/home">
-                    <img src="/assets/home-logo.svg" alt="" />
-                </a>
-            </Logo>
-<Search>
-    <div>
-        <input type="text" placeholder="Search" />
-    </div>
-    <SearchIcon>
-<img src="/assets/search-icon.svg" alt="" />
-    </SearchIcon>
-</Search>
-<Nav>
-    Nav menu
-</Nav>
-        </Content>
-   
-       </Container>
-    )
+  return (
+    <Container>
+      <Content>
+        <Logo>
+          <a href="/home">
+            <img src="/assets/home-logo.svg" alt="" />
+          </a>
+        </Logo>
+        <Search>
+          <div>
+            <input type="text" placeholder="Search" />
+          </div>
+          <SearchIcon>
+            <img src="/assets/search-icon.svg" alt="" />
+          </SearchIcon>
+        </Search>
+        <Nav>
+          <NavListWrap>
+            <NavList className="active">
+              <a>
+                <img src="/assets/nav-home.svg" alt="" />
+                <span>Home</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src="/assets/nav-network.svg" alt="" />
+                <span>My Network</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src="/assets/nav-jobs.svg" alt="" />
+                <span>Jobs</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src="/assets/nav-messaging.svg" alt="" />
+                <span>Messaging</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src="/assets/nav-notifications.svg" alt="" />
+                <span>Notifications</span>
+              </a>
+            </NavList>
+            <User>
+              <a>
+                <img src="/assets/user.svg" alt="" />
+                <span>Me</span>
+                <img src="/assets/down-icon.svg" alt="" />
+              </a>
+            </User>
+            <Work>
+              <a>
+                <img src="/assets/nav-work.svg" alt="" />
+             <span> Work</span>
+              <img src="/assets/down-icon.svg" alt="" />
+             
+              </a>
+            </Work>
+          </NavListWrap>
+        </Nav>
+      </Content>
+
+    </Container>
+  )
 }
 
 export default Header;
@@ -95,9 +141,86 @@ const Nav = styled.nav`
 display: block;
 @media(max-width: 768px) {
     position: fixed;
-    left: 0%;
+    left: 0;
     bottom: 0;
     background: white;
     width: 100%;
 }
+`
+
+const NavListWrap = styled.ul`
+display: flex;
+flex-wrap: nowrap;
+list-style-type: none;
+
+.active {
+  span:after {
+    content: "";
+    transform: scale(1);
+    border-bottom: 2px solid var(--white, #fff);
+position:absolute;
+left: 0;
+bottom: 0;
+transition: transform 0.2s ease-in-out;
+width: 100%;
+border-color: rgba(0, 0, 0, 0.9);
+  }
+}
+`
+const NavList = styled.li`
+display: flex;
+align-items: center;
+
+a {
+  align-items: center;
+  background: transparent;
+ 
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 1.5;
+  min-height: 52px;
+  min-width: 80px;
+  position: relative;
+  text-decoration: none;
+  span {
+    color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+min-width: 70px;  
+  }
+
+}
+
+&:hover, &:active {
+  a {
+    span {
+      color: rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+`
+
+const User = styled(NavList)`
+a > svg {
+  width: 24px;
+  border-radius: 50%;
+}
+a > img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  span {
+display: flex;
+align-items: center;
+  }
+}
+`
+const Work = styled(User)`
+border-left: 1px solid rgba(0, 0, 0, 0.08)
 `
