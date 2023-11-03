@@ -198,6 +198,8 @@ a {
   }
   @media (max-width: 768px) {
 min-width: 70px;  
+//remeove this
+display: none;
   }
 
 }

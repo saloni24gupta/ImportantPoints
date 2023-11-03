@@ -10,4 +10,5 @@ MainSide
 
 export default MainSide;
 const Container = styled.div`
-grid-area: mainside;`
+grid-area: mainside;
+`
