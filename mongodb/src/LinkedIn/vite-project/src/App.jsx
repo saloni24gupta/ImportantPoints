@@ -4,6 +4,9 @@
 // // import Header from "./components/Header"
 // // function App() {
 
+import CoreConcept from "./components/CoreConcept";
+import TabButton from "./components/TabButton";
+import userimg from './components/like.png';
 
 // //   return (
 // //     <>
@@ -108,15 +111,20 @@
 //   );
 // }
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+const image = ['./assets/search-icon.svg', './assets/searchh.png', './assets/send.png', './assets/ser.png', './assets/share.png', './assets/shared-image.png', './assets/user.svg', './assets/video-icon.jpg'];
 
 function genRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
+  const value = Math.floor(Math.random() * (max + 7));
+  console.log(value);
+  console.log(`this is value of`, Math.random());
+  return value
+ 
 }
 
 function Header() {
   return (
     <header>
-      <img src="./assets/comment.png" alt="Stylized atom" />
+      <img src={image[genRandomInt(2)]} alt="Stylized atom" />
       <h1>React Essentials</h1>
       <p>
         {reactDescriptions[genRandomInt(2)]} React concepts you will need for almost any app you are going to build!
@@ -126,9 +134,34 @@ function Header() {
 }
 
 function App() {
+  function HandleSelect(selectedButton) {
+    console.log(selectedButton)
+  }
   return (
     <div>
+       <search>
+  <h2>Examples</h2>
+  <menu>
+    <TabButton onClick={() => HandleSelect('hello')}>hello</TabButton>
+  <TabButton onSelect={() => HandleSelect('components')}>components</TabButton>
+  <TabButton onSelect={() => HandleSelect('JSX')}>JSX</TabButton>
+  <TabButton onSelect={() => HandleSelect('Props')}>Props</TabButton>
+  <TabButton onSelect={() => HandleSelect('Stage')}>State</TabButton>
+  </menu>
+ </search>
+
+
  <Header />
+
+ <div>
+  <CoreConcept title="component" description="Hello world" img={userimg}/>
+  <CoreConcept title="component" description="Hello world" img={userimg}/>
+  <CoreConcept title="component" description="Hello world" img={userimg}/>
+  <CoreConcept title="component" description="Hello world" img={userimg}/>
+  <CoreConcept title="component" description="Hello world" img={userimg}/>
+
+ </div>
+
       <main>
         <h2>Time to get started!</h2>
       </main>
