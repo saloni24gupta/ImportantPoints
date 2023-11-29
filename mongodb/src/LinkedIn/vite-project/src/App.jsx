@@ -110,6 +110,7 @@ import userimg from './components/like.png';
 //     </div>
 //   );
 // }
+import {useState} from 'react'
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 const image = ['./assets/search-icon.svg', './assets/searchh.png', './assets/send.png', './assets/ser.png', './assets/share.png', './assets/shared-image.png', './assets/user.svg', './assets/video-icon.jpg'];
 
@@ -134,8 +135,10 @@ function Header() {
 }
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState('Please select a button')
   function HandleSelect(selectedButton) {
-    console.log(selectedButton)
+    setSelectedTopic(selectedButton)
+    console.log(selectedTopic)
   }
   return (
     <div>
@@ -148,6 +151,7 @@ function App() {
   <TabButton onSelect={() => HandleSelect('Props')}>Props</TabButton>
   <TabButton onSelect={() => HandleSelect('Stage')}>State</TabButton>
   </menu>
+  {selectedTopic}
  </search>
 
 
